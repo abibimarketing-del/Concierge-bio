@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alexandra Abibi — Cupons e Escolhas</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #F1E9DD;
+    color: #1E1B18;
+    font-family: Georgia, 'Times New Roman', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 20px 56px;
+  }
+  .sans { font-family: system-ui, sans-serif; }
+  .muted { color: #8A8074; }
+  .handle {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8A8074;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .tagline {
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    margin: 0 0 14px;
+    text-align: center;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 0 28px;
+    line-height: 1.25;
+    text-align: center;
+  }
+  h1 em { font-style: italic; }
+  .wrap { width: 100%; max-width: 380px; }
+  .btn-primary {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1E1B18;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 28px;
+    font-family: system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+    width: 100%;
+  }
+  .btn-outline {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #E2D7C6;
+    color: #1E1B18;
+    border-radius: 999px;
+    padding: 13px 20px;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .center { text-align: center; }
+  .dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 22px; }
+  .dot { width: 28px; height: 4px; border-radius: 2px; background: #E2D7C6; }
+  .dot.active { background: #1E1B18; }
+  .question { font-size: 19px; text-align: center; margin-bottom: 18px; }
+  .option {
+    background: #FFFFFF;
+    border: 1px solid #E2D7C6;
+    border-radius: 14px;
+    padding: 14px 18px;
+    text-align: left;
+    font-family: system-ui, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    color: #1E1B18;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .label-eyebrow {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8A8074;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #E2D7C6;
+    border-radius: 18px;
+    padding: 22px;
+    text-align: left;
+  }
+  .card h2 { font-size: 22px; margin: 0 0 8px; }
+  .card p { font-family: system-ui, sans-serif; font-size: 15px; line-height: 1.55; color: #4a423e; }
+  .comprar {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #1E1B18;
+    color: #fff;
+    border-radius: 999px;
+    padding: 13px 20px;
+    font-family: system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .cupom-txt { font-family: system-ui, sans-serif; font-size: 12px; text-align: center; margin-top: 8px; color: #8A8074; }
+  .refazer {
+    margin-top: 16px;
+    background: none;
+    border: none;
+    color: #8A8074;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rodape { margin-top: 48px; }
+  .link-item {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #1E1B18;
+    background: #EADFCE;
+    border-radius: 10px;
+    padding: 9px 14px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .link-item .cupom { color: #8A8074; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="handle">@alexandra.abibi</div>
+<p class="tagline">Maravilhosa, aqui você encontra todos os meus cupons de desconto 💛</p>
+<h1>seu <em>concierge</em> de produtos</h1>
+
+<!-- TELA INICIAL -->
+<div id="tela-inicial" class="wrap center">
+  <p class="sans muted" style="font-size:15px; line-height:1.6;">
+    Três perguntas rápidas e eu te mostro exatamente o produto certo pra você.
+  </p>
+  <button class="btn-primary" onclick="comecarQuiz()">✨ Começar →</button>
+  <a class="btn-outline" href="https://vt.tiktok.com/ZS9kXkpaSpkpk-jrO0c/" target="_blank" rel="noopener noreferrer">
+    Ver vitrine no TikTok Shop ↗
+  </a>
+</div>
+
+<!-- QUIZ -->
+<div id="tela-quiz" class="wrap hidden">
+  <div class="dots" id="dots"></div>
+  <p class="question" id="pergunta-texto"></p>
+  <div id="opcoes"></div>
+</div>
+
+<!-- RESULTADO -->
+<div id="tela-resultado" class="wrap center hidden">
+  <div class="label-eyebrow">recomendado pra você</div>
+  <div class="card">
+    <h2 id="res-nome"></h2>
+    <p id="res-descricao"></p>
+    <a class="comprar" id="res-link" target="_blank" rel="noopener noreferrer">Comprar agora ↗</a>
+    <p class="cupom-txt" id="res-cupom"></p>
+  </div>
+  <button class="refazer" onclick="recomecar()">↺ refazer perguntas</button>
+</div>
+
+<!-- RODAPÉ: TODOS OS LINKS -->
+<div class="wrap rodape">
+  <p class="label-eyebrow">ver todos os links</p>
+  <div id="lista-links"></div>
+</div>
+
+<script>
+const CATALOGO = {
+  beleza: [
+    { nome: "Oceane", descricao: "Maquiagem para o dia a dia.", link: "https://www.oceane.com.br/?utmi_pc=AchadosdaAlexandra", cupom: "ACHADOSDAALEXANDRA" },
+    { nome: "Pink Cheeks", descricao: "Maquiagem e protetor solar de alta performance.", link: "https://pinkcheeks.com.br/", cupom: "PNK-ALEXANDRAABIBI" },
+    { nome: "Braé", descricao: "Cuidados capilares — condicionador, óleo e finalizadores.", link: "https://www.brae.com.br/?parceiro=Alexandra", cupom: "ALEXANDRA" },
+    { nome: "New Hair", descricao: "Mega hair e extensões capilares.", link: "https://newhair.com.br/?influencer=1", cupom: "" },
+    { nome: "You Sense", descricao: "Maquiagem — gloss e brow lamination para a sobrancelha.", link: "https://yousense.com.br/", cupom: "Alexandra" },
+  ],
+  estilo: [
+    { nome: "Go Case", descricao: "Capinhas e acessórios personalizados para celular.", link: "https://www.gocase.com.br/", cupom: "ALEABIBI" },
+    { nome: "Toda Up", descricao: "Moda íntima e soluções de sustentação.", link: "https://todaup.com/", cupom: "" },
+    { nome: "Saint Germain", descricao: "Relógios e óculos.", link: "https://www.saintgermainbrand.com.br/", cupom: "A-ABIBISGPA" },
+  ],
+  alimentos: [
+    { nome: "Tia Sônia", descricao: "Granolas, cookies e alimentação saudável.", link: "https://www.tiasonia.com.br/", cupom: "TSALEXANDRA" },
+  ],
+  casa: [
+    { nome: "Hoomy", descricao: "Itens para casa — toalhas, lençóis e roupa de cama.", link: "https://hoomy.com.br", cupom: "ABIBI" },
+  ],
+  "bem-estar": [
+    { nome: "SuperCoffee", descricao: "Café funcional, energia para o dia corrido.", link: "https://www.supercoffee.com.br/", cupom: "ABIBI" },
+    { nome: "Always Fit", descricao: "Moda fitness.", link: "https://alwaysfit.com.br/?utm_source=insta&utm_medium=cupom&utm_campaign=influ", cupom: "ALEABIBI" },
+    { nome: "True", descricao: "Suplementos.", link: "https://vivatrue.com.br/", cupom: "TRUEALEXANDRABIBI" },
+  ],
+};
+
+const PERGUNTAS = [
+  {
+    id: "categoria",
+    texto: "O que você está buscando hoje?",
+    opcoes: [
+      { label: "Cuidar da beleza (pele, cabelo, make)", valor: "beleza" },
+      { label: "Renovar o estilo", valor: "estilo" },
+      { label: "Alimentação saudável", valor: "alimentos" },
+      { label: "Coisas pra casa", valor: "casa" },
+      { label: "Energia e bem-estar", valor: "bem-estar" },
+    ],
+  },
+  {
+    id: "prioridade",
+    texto: "O que mais pesa na sua escolha agora?",
+    opcoes: [
+      { label: "Praticidade", valor: "praticidade" },
+      { label: "Economia", valor: "economia" },
+      { label: "Qualidade", valor: "qualidade" },
+      { label: "Novidade", valor: "novidade" },
+    ],
+  },
+  {
+    id: "fase",
+    texto: "Em que fase você está?",
+    opcoes: [
+      { label: "Gestante", valor: "gestante" },
+      { label: "Mãe de bebê ou criança pequena", valor: "kids" },
+      { label: "Mãe de crianças maiores", valor: "kids-grande" },
+      { label: "Sem filhos por enquanto", valor: "sem-filhos" },
+    ],
+  },
+];
+
+const FRASES_MOTIVO = {
+  praticidade: "sei que seu tempo é curto, então escolhi algo prático pro seu dia a dia",
+  economia: "separei essa opção pensando no seu bolso, com o cupom aplicado",
+  qualidade: "essa é uma das marcas que eu mais confio pela qualidade",
+  novidade: "sei que você gosta de novidade, então trouxe algo diferente pra você experimentar",
+};
+
+let step = -1;
+let respostas = {};
+
+function comecarQuiz() {
+  step = 0;
+  respostas = {};
+  document.getElementById("tela-inicial").classList.add("hidden");
+  document.getElementById("tela-resultado").classList.add("hidden");
+  document.getElementById("tela-quiz").classList.remove("hidden");
+  renderPergunta();
+}
+
+function renderPergunta() {
+  const p = PERGUNTAS[step];
+  document.getElementById("pergunta-texto").textContent = p.texto;
+
+  const dots = document.getElementById("dots");
+  dots.innerHTML = "";
+  PERGUNTAS.forEach((_, i) => {
+    const d = document.createElement("div");
+    d.className = "dot" + (i <= step ? " active" : "");
+    dots.appendChild(d);
+  });
+
+  const opcoesDiv = document.getElementById("opcoes");
+  opcoesDiv.innerHTML = "";
+  p.opcoes.forEach((opcao) => {
+    const btn = document.createElement("button");
+    btn.className = "option";
+    btn.textContent = opcao.label;
+    btn.onclick = () => escolher(p.id, opcao.valor);
+    opcoesDiv.appendChild(btn);
+  });
+}
+
+function escolher(id, valor) {
+  respostas[id] = valor;
+  if (step + 1 < PERGUNTAS.length) {
+    step++;
+    renderPergunta();
+  } else {
+    mostrarResultado();
+  }
+}
+
+function mostrarResultado() {
+  const lista = CATALOGO[respostas.categoria] || CATALOGO.beleza;
+  const indice = (respostas.fase === "gestante" || respostas.fase === "kids") ? 0 : 1;
+  const produto = lista[indice] || lista[0];
+
+  document.getElementById("tela-quiz").classList.add("hidden");
+  document.getElementById("tela-resultado").classList.remove("hidden");
+
+  document.getElementById("res-nome").textContent = produto.nome;
+  let desc = produto.descricao;
+  if (FRASES_MOTIVO[respostas.prioridade]) {
+    desc += " — " + FRASES_MOTIVO[respostas.prioridade] + ".";
+  }
+  document.getElementById("res-descricao").textContent = desc;
+
+  const linkEl = document.getElementById("res-link");
+  if (produto.link) {
+    linkEl.href = produto.link;
+    linkEl.style.display = "flex";
+  } else {
+    linkEl.style.display = "none";
+  }
+
+  document.getElementById("res-cupom").textContent = produto.cupom ? "cupom " + produto.cupom : "";
+}
+
+function recomecar() {
+  step = -1;
+  respostas = {};
+  document.getElementById("tela-resultado").classList.add("hidden");
+  document.getElementById("tela-inicial").classList.remove("hidden");
+}
+
+function renderRodape() {
+  const container = document.getElementById("lista-links");
+  Object.values(CATALOGO).flat().forEach((p) => {
+    const a = document.createElement("a");
+    a.className = "link-item";
+    a.href = p.link || "#";
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    if (!p.link) a.style.opacity = "0.55";
+    a.innerHTML = "<span>" + p.nome + "</span><span class='cupom'>" + (p.cupom || "") + "</span>";
+    container.appendChild(a);
+  });
+}
+renderRodape();
+</script>
+</body>
+</html>
